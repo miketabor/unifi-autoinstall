@@ -15,3 +15,4 @@ Simply run the following command from terminal:
 ```
 curl -L https://git.io/vKblp | bash
 ```
+Log into UniFi by going to: **https://SERVER_IP:8443**
