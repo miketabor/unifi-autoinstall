@@ -13,6 +13,8 @@ To learn more, visit [https://miketabor.com](https://miketabor.com/install-ubiqu
 ### How to use
 Simply run the following command from terminal:
 ```
-curl -L https://git.io/vKblp | bash
+wget https://raw.githubusercontent.com/miketabor/unifi-autoinstall/master/install.sh
+less install.sh
+sudo bash install.sh
 ```
 Log into UniFi by going to: **https://SERVER_IP:8443**
