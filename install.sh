@@ -49,5 +49,8 @@ sudo echo -e '\n[ubiquiti]\nenabled  = true\nfilter   = ubiquiti\nlogpath  = /us
 # Restart Fail2ban to apply changes above.
 sudo service fail2ban restart
 
+# https://community.ubnt.com/t5/UniFi-Wireless/IMPORTANT-Debian-Ubuntu-users-MUST-READ-Updated-06-21/m-p/1968252#M233999
+echo "JSVC_EXTRA_OPTS=\"\$JSVC_EXTRA_OPTS -Xss1280k\"" | sudo tee -a /etc/default/unifi
+
 echo -e '\n\n\n  Ubiquiti UniFi Controller Install Complete...!'
 echo '  Access controller by going to https://<SERVER_IP>:8443'
