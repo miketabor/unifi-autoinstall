@@ -44,7 +44,7 @@ sudo echo -e '# Fail2Ban filter for Ubiquiti UniFi\n#\n#\n\n[Definition]\nfailre
 ' | sudo tee -a /etc/fail2ban/filter.d/ubiquiti.conf
 
 # Add ubiquiti JAIL to Fail2ban setting log path and blocking IPs after 3 failed logins within 15 minutes for 1 hour.
-sudo echo -e '\n[ubiquiti]\nenabled  = true\nfilter   = ubiquiti\nlogpath  = /usr/lib/unifi/logs/server.log\nmaxretry = 3\nbantime = 3600\nfindtime = 900\nport = 8443' | sudo tee -a /etc/fail2ban/jail.local
+sudo echo -e '\n[ubiquiti]\nenabled  = true\nfilter   = ubiquiti\nlogpath  = /usr/lib/unifi/logs/server.log\nmaxretry = 3\nbantime = 3600\nfindtime = 900\nport = 8443\nbanaction = iptables[name=ubiquiti, port=8443, protocol=tcp]' | sudo tee -a /etc/fail2ban/jail.local
 
 # Restart Fail2ban to apply changes above.
 sudo service fail2ban restart
