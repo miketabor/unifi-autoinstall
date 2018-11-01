@@ -24,10 +24,10 @@ sudo ufw allow 3478/udp
 sudo ufw --force enable
 
 # Add Ubiquiti UniFi repo to system source list.
-sudo echo 'deb http://www.ubnt.com/downloads/unifi/debian unifi5 ubiquiti' | sudo tee -a /etc/apt/sources.list.d/100-ubnt.list
+echo 'deb http://www.ubnt.com/downloads/unifi/debian stable ubiquiti' | sudo tee /etc/apt/sources.list.d/100-ubnt-unifi.list
 
 # Add Ubiquiti GPG Keys
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50 && sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+sudo wget -O /etc/apt/trusted.gpg.d/unifi-repo.gpg https://dl.ubnt.com/unifi/unifi-repo.gpg 
 
 # Update source list to include the UniFi repo then install Ubiquiti UniFi.
 sudo apt-get update && sudo apt-get install unifi -y
