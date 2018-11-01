@@ -23,11 +23,18 @@ sudo ufw allow 3478/udp
 # Enable UFW firewall.
 sudo ufw --force enable
 
+# Install Java 8
+echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/webupd8team-java.list
+echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | sudo tee -a /etc/apt/sources.list.d/webupd8team-java.list
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886 
+sudo apt-get update 
+apt-get install oracle-java8-installer -y; apt-get install oracle-java8-set-default -y
+
 # Add Ubiquiti UniFi repo to system source list.
 echo 'deb http://www.ubnt.com/downloads/unifi/debian stable ubiquiti' | sudo tee /etc/apt/sources.list.d/100-ubnt-unifi.list
 
 # Add Ubiquiti GPG Keys
-sudo wget -O /etc/apt/trusted.gpg.d/unifi-repo.gpg https://dl.ubnt.com/unifi/unifi-repo.gpg 
+sudo wget -O /etc/apt/trusted.gpg.d/unifi-repo.gpg https://dl.ubnt.com/unifi/unifi-repo.gpg
 
 # Update source list to include the UniFi repo then install Ubiquiti UniFi.
 sudo apt-get update && sudo apt-get install unifi -y
