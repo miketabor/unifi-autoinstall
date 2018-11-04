@@ -12,6 +12,9 @@
 # Update apt-get source list and upgrade all packages.
 sudo apt-get update && sudo apt-get upgrade -y
 
+# Install UFW Firewall
+sudo apt-get install ufw
+
 # Allow SSH and UniFi ports on UFW firewall.
 sudo ufw allow 22/tcp
 sudo ufw allow 8080/tcp
